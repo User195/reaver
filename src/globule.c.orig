@@ -293,16 +293,6 @@ int get_pixie_log()
     return globule->pixie_log;
 }
 
-int get_empty_string_pin()
-{
-    return globule->empty_string_pin;
-}
-
-void set_empty_string_pin(int value)
-{
-    globule->empty_string_pin = value;
-}
-
 void set_max_num_probes(int value)
 {
     globule->max_num_probes = value;

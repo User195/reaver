@@ -41,9 +41,6 @@ struct globals
 {
     int pixie_loop;                 /* Loops through up to M4 */
     int pixie_log;                 /* Logs PixieDust hashes to executing directory */
-
-    int empty_string_pin;           /* Use an empty string as the pin */
-
     int last_wps_state;             /* Holds the previous WPS state as stored in wps->state */
 
     int p1_index;                   /* Index into p1 array for building WPS pins */

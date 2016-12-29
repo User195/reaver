@@ -1,0 +1,10 @@
+--- src/globule.h	2015-06-06 23:29:28.000000000 -0400
++++ src/globule.h	2015-06-19 19:24:23.091687318 -0400
+@@ -265,6 +268,6 @@ int get_pixie_loop();
+ void set_pixie_log(int value);
+ int get_pixie_log();
+ void set_stop_in_m1(int index);
+-
++int get_empty_string_pin();
+ 
+ #endif

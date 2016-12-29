@@ -1,0 +1,37 @@
+--- src/argsparser.c	2015-06-06 23:29:28.000000000 -0400
++++ src/argsparser.c	2015-06-19 19:43:00.035723311 -0400
+@@ -41,7 +41,7 @@ int process_arguments(int argc, char **a
+     int long_opt_index = 0;
+     char bssid[MAC_ADDR_LEN] = { 0 };
+     char mac[MAC_ADDR_LEN] = { 0 };
+-    char *short_options = "W:K:b:e:m:i:t:d:c:T:x:r:g:l:o:p:s:C:1:2:ZaA5ELfnqvDShwXNPH0";
++    char *short_options = "W:K:b:e:m:i:t:d:c:T:x:r:g:l:o:p:s:C:1:2:ZaA5ELfnqvDShwXNPH0B";
+     struct option long_options[] = {
+ 		{ "generate-pin", required_argument, NULL, 'W' },
+ 		{ "stop-in-m1", no_argument, NULL, '0' },
+@@ -216,12 +217,15 @@ int process_arguments(int argc, char **a
+             case 'N':
+                 set_oo_send_nack(0);
+                 break;
+-	    case 'P':
++	        case 'P':
+                 set_pixie_loop(1);
+                 break;
+-	    case 'H':
++            case 'H':
+                 set_pixie_log(1);
+                 break;
++	        case 'B':
++                set_empty_string_pin(1);
++                break;
+             default:
+                 ret_val = EXIT_FAILURE;
+         }
+@@ -257,6 +261,7 @@ void init_default_settings(void)
+ 	set_stop_in_m1(0);
+ 	set_op_gen_pin(0);
+     set_exhaustive(0);
++    set_empty_string_pin(0);
+ }
+ 
+ /* Parses the recurring delay optarg */

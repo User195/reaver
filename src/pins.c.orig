@@ -107,17 +107,12 @@ char *build_next_pin()
     pin = build_wps_pin();
     if(pin)
     {
-        if (get_empty_string_pin())
-        {
-            wps_registrar_add_pin(wps->wps->registrar, NULL, "lalalalalala" , 0 , 0);
-        }
         /* Add the new pin */
-        else if(wps_registrar_add_pin(wps->wps->registrar, NULL, (const u8 *) pin, PIN_SIZE , 0) != 0)
+        if(wps_registrar_add_pin(wps->wps->registrar, NULL, (const u8 *) pin, PIN_SIZE, 0) != 0)
         {
             free(pin);
             pin = NULL;
         }
-
     }
 
     return pin;
