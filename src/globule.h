@@ -286,5 +286,6 @@ int get_pixie_log();
 void set_stop_in_m1(int index);
 void set_quit_pin_attempts(int value);
 
+int get_empty_string_pin();
 
 #endif

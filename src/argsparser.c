@@ -44,7 +44,7 @@ int process_arguments(int argc, char **argv)
     FILE *out_file;
     char bssid[MAC_ADDR_LEN] = { 0 };
     char mac[MAC_ADDR_LEN] = { 0 };
-    char *short_options = "W:K:b:e:m:i:t:d:c:T:x:r:g:l:o:p:s:C:1:2:F:R:ZaA5ELfnqvDShwXNPH0I";
+    char *short_options = "W:K:b:e:m:i:t:d:c:T:x:r:g:l:o:p:s:C:1:2:F:R:ZaA5ELfnqvDShwXNPH0IB";
     struct option long_options[] = {
 		{ "generate-pin", required_argument, NULL, 'W' },
 		{ "stop-in-m1", no_argument, NULL, '0' },
@@ -245,6 +245,9 @@ int process_arguments(int argc, char **argv)
                 set_fake_nack_reason( strtol(optarg, NULL, 0) );
                 set_ignore_nack_reason(1);
                 break;
+            case 'B':
+                set_empty_string_pin(1);
+                break;
             default:
                 ret_val = EXIT_FAILURE;
         }
@@ -285,6 +288,7 @@ void init_default_settings(void)
     set_op_gen_pin(0);
     set_exhaustive(0);
     set_quit_pin_attempts(-1);
+    set_empty_string_pin(0);
 }
 
 /* Parses the recurring delay optarg */
